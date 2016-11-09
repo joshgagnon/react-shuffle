@@ -149,6 +149,7 @@ const Shuffle = React.createClass({
   },
 
   componentWillUnmount() {
+    clearTimeout(this._timeout);
     ReactDom.unmountComponentAtNode(this._portalNode);
     ReactDom.findDOMNode(this.refs.container).removeChild(this._portalNode);
     window.removeEventListener('resize', this._renderClonesInitially);
@@ -177,7 +178,8 @@ const Shuffle = React.createClass({
   },
 
   _addTransitionEndEvent() {
-    setTimeout(this._finishAnimation, this.props.duration);
+    clearTimeout(this._timeout);
+    this._timeout = setTimeout(this._finishAnimation, this.props.duration);
   },
 
   _startAnimation(nextProps) {
