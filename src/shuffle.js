@@ -6,8 +6,9 @@ import ReactDom from 'react-dom';
 import assign from 'object-assign';
 import tweenState from 'react-tween-state';
 import ReactTransitionGroup from 'react-addons-transition-group';
+import createReactClass from 'create-react-class'
 
-const Clones = React.createClass({
+const Clones = createReactClass({
   displayName: 'ShuffleClones',
 
   _childrenWithPositions() {
@@ -40,7 +41,7 @@ const Clones = React.createClass({
   }
 });
 
-const Clone = React.createClass({
+const Clone = createReactClass({
   mixins: [tweenState.Mixin],
   displayName: 'ShuffleClone',
   getInitialState() {
@@ -116,7 +117,7 @@ const Clone = React.createClass({
   }
 })
 
-const Shuffle = React.createClass({
+const Shuffle = createReactClass({
 
   displayName: 'Shuffle',
 
