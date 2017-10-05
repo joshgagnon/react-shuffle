@@ -263,6 +263,7 @@ const Shuffle = createReactClass({
 
   render() {
     let { initial, fade, duration, ...props } = this.props;
+    props.scale = (!!this.props.scale)+'';
     var showContainer = initial ? 0 : 1;
     if (this.state.ready) {
       showContainer = 0;
